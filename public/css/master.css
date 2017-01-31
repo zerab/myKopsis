@@ -1,6 +1,17 @@
-body
+
+html
 {
   background-color:#FFFFFF;
+  height:100%;
+}
+body
+{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.wrapper {
+  flex: 1;
 }
 .nav-color
 {
@@ -43,7 +54,8 @@ header a
 .nav-btn:hover
 {
   background-color:#ffffff;
-    color:#067B82;
+  box-shadow: 0px 1px 10px #ffffff;
+  color:#067B82;
   -webkit-transition:0.25s;
   -moz-transition:0.25s;
 }
@@ -54,23 +66,28 @@ header a
 }
 .cart:hover
 {
-  background-color:#08494d;
-}
-.cart:active
-{
-  background-color:#08494d;
+  background-color:#ffffff;
+  box-shadow: 0px 1px 10px #ffffff;
+  -webkit-transition:0.25s;
+  -moz-transition:0.25s;
 }
 .content-container
 {
-  margin-top:20px;
-  margin-bottom:20px;
-  display: inline-block;;
+  position:relative;
+  top: 70px;
+  display:inline-block;
+  box-shadow: 0px 1px 10px #1E2A36;
 }
+
 .thumbnail
 {
   border:none;
   margin-bottom:30px;
   height:40%;
+  border-style:solid;
+  border-color:rgb(176, 176, 176);
+  border-width:1px;
+  border-radius:5px;
 }
 .card-title
 {
@@ -79,9 +96,11 @@ header a
   font-weight: bold;
   font-size: 15px;
 }
-.card-description
+.card-caption
 {
-  padding:10px;
+  text-align:center;
+  font-weight:bold;
+  color:#222222;
 }
 .btn-container
 {
@@ -158,10 +177,55 @@ header a
 }
 .card
 {
-  box-shadow: 2px 2px 15px #1E2A36;
+  position:relative;
+  top:15px;
 }
 .card-desc
 {
   font-size:15px;
   font-weight:normal;
+
+}
+.status-available
+{
+  background-color:rgb(30, 89, 22);
+  padding:5px 15px;
+  text-align:center;
+  border-radius:3px;
+}
+.status-kosong
+{
+  background-color:rgb(99, 19, 19);
+  padding:5px 15px;
+  text-align:center;
+  border-radius:3px;
+}
+.logo-header img
+{
+  height:50px;
+}
+.site-footer
+{
+  margin-top:70px;
+  margin-bottom:20px;
+  padding:20px;
+  background-color:#1E2A36;
+  box-shadow: 0px 3px 8px #1E2A36;
+}
+hr
+{
+  border-color:rgb(148, 148, 148);
+}
+.upper-footer
+{
+  color:#ffffff;
+}
+.upper-footer img
+{
+  height:100px;
+}
+.lower-footer
+{
+  text-align:center;
+  color:#ffffff;
 }

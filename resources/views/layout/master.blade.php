@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="css/master.css">
   </head>
   <body>
-    <header class="container-fluid nav-color">
+      <div class="wrapper">
+      <header class="container-fluid nav-color navbar-fixed-top">
       <nav class="">
-        <div class="col-md-3"><a>myKopsis</a></div>
+        <div class="col-md-3"><div class="logo-header"><a href="/"><img src="images/myKopsis-logo.png"></a></div></div>
         <div class="col-md-4 col-md-offset-1">
           <form class="navbar-form">
         <div class="form-group">
@@ -27,8 +28,8 @@
     <div class="dropdown">
       <div class="cart">
       <div class="dropdown-toggle" type="button" data-toggle="dropdown">
-    <center><span class="glyphicon glyphicon-shopping-cart white"></span>
-    <span class="white caret"></span></center>
+    <center><span class="glyphicon glyphicon-shopping-cart"></span>
+    <span class="caret"></span></center>
   </div>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
   </div>
@@ -41,6 +42,17 @@
     <div class="content-container col-md-10 col-md-offset-1">
       @yield('content')
     </div>
+  </div>
+    <footer class="site-footer col-md-10 col-md-offset-1">
+      <div class="upper-footer">
+        <img src="images/myKopsis-logo.png">
+      </div>
+      <hr>
+      <div class="lower-footer">
+        &copy; myKopsis 2017. All rights reserved.<br>
+        Crafted with <span class="pink glyphicon glyphicon-heart"></span> in Surabaya
+      </div>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
