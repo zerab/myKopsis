@@ -180,6 +180,10 @@ header a
   position:relative;
   top:15px;
 }
+.card:hover
+{
+  box-shadow: 0px 0px 5px #1E2A36;
+}
 .card-desc
 {
   font-size:15px;
