@@ -1,11 +1,11 @@
 
 html
 {
-  background-color:#FFFFFF;
   height:100%;
 }
 body
 {
+  background-color:#ececec;
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -77,6 +77,8 @@ header a
   top: 70px;
   display:inline-block;
   box-shadow: 0px 1px 10px #1E2A36;
+  background-color:#ffffff;
+  min-height: 318px;
 }
 
 .thumbnail
@@ -219,6 +221,7 @@ header a
 hr
 {
   border-color:rgb(148, 148, 148);
+  border-width:3px;
 }
 .upper-footer
 {
@@ -232,4 +235,76 @@ hr
 {
   text-align:center;
   color:#ffffff;
+}
+.content-heading
+{
+  background-color:#1E2A36;
+  position:relative;
+  top: 70px;
+  box-shadow: 0px -3px 8px #1E2A36;
+  padding:15px;
+  font-size:30px;
+  color:#ffffff;
+}
+.dropdown-content
+{
+  color:black;
+}
+.akun-index a
+{
+  color:#1E2A36;
+  text-decoration: none;
+}
+.akun-index
+{
+  position:relative;
+  top:10px;
+}
+.akun-index h1
+{
+  font-weight: bold;
+}
+.akun-index-left
+{
+  float: left;
+  width:500px;
+  border-radius:5px;
+  position: relative;
+  left: 40px;
+}
+.akun-index-left h3, h2
+{
+  font-weight:bold;
+}
+.akun-index-head
+{
+  background-color: #1E2A36;
+  color:#ffffff;
+  padding:10px 10px 20px 10px;
+}
+.akun-index-foot
+{
+  border-style:solid;
+  border-color:#1E2A36;
+  padding:10px 10px 20px 10px;
+}
+.akun-index-foot:hover
+{
+  border-width:0;
+  background-color:#26A65B;
+  color:#ffffff;
+  -webkit-transition:0.25s ease-out;
+  -moz-transition:0.25s ease-out;
+  transition:0.25s ease-out;
+}
+.akun-index-right
+{
+  float: right;
+  width:500px;
+  position: relative;
+  right: 40px;
+}
+.akun-index-right h3
+{
+  font-weight:bold;
 }

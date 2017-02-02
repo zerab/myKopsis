@@ -22,7 +22,7 @@
       </form>
     </div>
     <a href="/katalog"><div class="col-md-1 col-md-offset-1 nav-btn"><center>Katalog</center></div></a>
-    <a href="/anggota"><div class="col-md-1 nav-btn"><center>Anggota</center></div></a>
+    <a href="/akun"><div class="col-md-1 nav-btn"><center>Akun</center></div></a>
     <a>
   <div class="col-md-1">
     <div class="dropdown">
@@ -32,6 +32,9 @@
     <span class="caret"></span></center>
   </div>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <div class="dropdown-content">
+
+    </div>
   </div>
 </div>
   </div>
@@ -39,6 +42,9 @@
     </a>
       </nav>
     </header>
+    <div class="content-heading col-md-10 col-md-offset-1">
+      @yield('heading')
+    </div>
     <div class="content-container col-md-10 col-md-offset-1">
       @yield('content')
     </div>

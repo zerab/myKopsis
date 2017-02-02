@@ -17,13 +17,13 @@ class CreateMembersTable extends Migration
             $table->increments('id');
             $table->integer('member_id');
             $table->string('fullname');
-            $table->string('username');
+            $table->string('username','30');
             $table->string('gender','10');
             $table->string('birthdate','24');
             $table->string('birthplace', '24');
             $table->string('password', '24');
             $table->string('email', '30');
-            $table->string('phone','15');
+            $table->string('phone','15')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

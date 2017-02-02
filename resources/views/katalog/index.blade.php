@@ -1,5 +1,8 @@
 @extends('layout.master')
 @section('title', 'Katalog Barang - myKopsis')
+@section('heading')
+<b><center>Katalog Barang</center><b>
+@endsection
 @section('content')
 <center><h1>Mau beli apa hari ini?</h1></center>
 @foreach ($products as $product)

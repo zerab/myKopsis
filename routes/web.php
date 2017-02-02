@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('layout.master');
 });
 Route::get('/katalog', "katalogController@index");
+Route::get('/akun', "akunController@index");
