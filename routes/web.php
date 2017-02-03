@@ -19,4 +19,5 @@ Route::get('/akun', "akunController@index");
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/register', 'authController@register');
+Route::get('/login', 'authController@login');
