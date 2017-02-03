@@ -1,10 +1,10 @@
-@extends('layout.master')
+@extends('layouts.akun')
 @section('title', 'Akun - myKopsis')
 @section('heading')
 @endsection
 @section('content')
 <div class="akun-index">
-<center><h1>Selamat datang!</h1></center>
+<center><h1>Sudah siap berbelanja?<br><span class="glyphicon glyphicon-shopping-cart akun-cart"></span></h1></center>
 <br>
 <div class="akun-index-left">
 <center>

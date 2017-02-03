@@ -8,7 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/master.css">
   </head>
-  <body>
+  <body style="background-image:url('images/business-wallpaper-13.jpg');background-repeat: no-repeat; background-position: right top;background-attachment: fixed;">
       <div class="wrapper">
       <header class="container-fluid nav-color navbar-fixed-top">
       <nav class="">
@@ -42,23 +42,11 @@
     </a>
       </nav>
     </header>
-    <div class="content-heading col-md-10 col-md-offset-1">
-      @yield('heading')
-    </div>
-    <div class="content-container col-md-10 col-md-offset-1">
+    <div class="akun-container col-md-10 col-md-offset-1">
       @yield('content')
     </div>
   </div>
-    <footer class="site-footer col-md-10 col-md-offset-1">
-      <div class="upper-footer">
-        <img src="images/myKopsis-logo.png">
-      </div>
-      <hr>
-      <div class="lower-footer">
-        &copy; myKopsis 2017. All rights reserved.<br>
-        Crafted with <span class="pink glyphicon glyphicon-heart"></span> in Surabaya
-      </div>
-    </footer>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>

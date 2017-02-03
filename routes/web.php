@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('layout.master');
+    return view('layouts.master');
 });
 Route::get('/katalog', "katalogController@index");
 Route::get('/akun', "akunController@index");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

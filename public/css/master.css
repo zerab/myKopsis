@@ -5,7 +5,6 @@ html
 }
 body
 {
-  background-color:#ececec;
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -77,10 +76,18 @@ header a
   top: 70px;
   display:inline-block;
   box-shadow: 0px 1px 10px #1E2A36;
-  background-color:#ffffff;
-  min-height: 318px;
+  background-color:rgba(30, 42, 54, 0.8);
+  min-height: 565px;
 }
-
+.akun-container
+{
+  position:relative;
+  top: 70px;
+  display:inline-block;
+  box-shadow: 0px 1px 10px #1E2A36;
+  background-color:rgba(30, 42, 54, 0.8);
+  min-height: 565px;
+}
 .thumbnail
 {
   border:none;
@@ -258,11 +265,12 @@ hr
 .akun-index
 {
   position:relative;
-  top:10px;
+  top:30px;
 }
 .akun-index h1
 {
   font-weight: bold;
+  color:#ffffff;
 }
 .akun-index-left
 {
@@ -275,22 +283,25 @@ hr
 .akun-index-left h3, h2
 {
   font-weight:bold;
+  color:#ffffff;
 }
 .akun-index-head
 {
-  background-color: #1E2A36;
-  color:#ffffff;
+  background-color: ;
+  color:black;
   padding:10px 10px 20px 10px;
 }
 .akun-index-foot
 {
   border-style:solid;
   border-color:#1E2A36;
+  background-color: #1E2A36;
+  border-radius:5px;
   padding:10px 10px 20px 10px;
 }
 .akun-index-foot:hover
 {
-  border-width:0;
+  border-color:#26A65B;
   background-color:#26A65B;
   color:#ffffff;
   -webkit-transition:0.25s ease-out;
@@ -307,4 +318,14 @@ hr
 .akun-index-right h3
 {
   font-weight:bold;
+  color:#ffffff;
+}
+.akun-cart
+{
+  font-size:80px;
+  background-color:#ffffff;
+  color:#1E2A36;
+  border-radius:150px;
+  padding:60px;
+  margin:30px 0px 0px 0px;
 }

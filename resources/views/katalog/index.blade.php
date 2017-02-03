@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layouts.master')
 @section('title', 'Katalog Barang - myKopsis')
 @section('heading')
 <b><center>Katalog Barang</center><b>
