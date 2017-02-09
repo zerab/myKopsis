@@ -16,10 +16,23 @@
   left:400px;
   border-radius:10px;
 }
-.grid {
 
+.register-wrapper
+{
+  background-color: rgba(30, 42, 54, 0.5);
+  padding:10px 75px 25px 75px;
+  width:535px;
+  position:relative;
+  top:80px;
+  left:400px;
+  border-radius:10px;
 }
-
+.register-wrapper h3
+{
+  font-weight: bold;
+  color:#eee;
+  margin-bottom: 15px;
+}
 /* helpers/hidden.css */
 
 .hidden {
@@ -163,4 +176,36 @@ p {
   text-align: center;
   position: relative;
   left:90px;
+}
+.register-label
+{
+  font-size:15px;
+  font-weight:bold;
+}
+.form__field select
+{
+  background-color: rgba(30, 42, 54, 0.6);
+  text-align:center;
+  border:none;
+  padding:2px;
+  margin: 0px 2px 0px 2px;
+}
+select:focus,
+select:hover,
+select:active
+{
+  background-color: rgba(30, 42, 54, 0.8);
+  box-shadow: none;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.error-register
+{
+  width:400px;
+  position:absolute;
+  z-index: 100;
+  top:80px;
+  right:30px;
 }
