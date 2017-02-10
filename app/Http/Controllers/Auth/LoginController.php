@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -36,10 +37,31 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
-    public function login()
+    /*public function authenticate()
     {
-      Auth::login(find('username'));
-      $id = Auth::user();
-      dd($id);
+      $username = request('username');
+      $password = request('password');
+      if (Auth::attempt(['username' => $username, 'password' => $password])) {
+            // Authentication passed...
+            echo "login berhasil";
+      }
+      else {
+            echo "login gagal";
+      }
+    }*/
+    public function authenticate()
+    {
+      $username = request('username');
+      $password = request('password');
+      if ($member = Auth::attempt(['username' => $username, 'password' => $password]))
+      {
+        echo "login berhasil";
+        return redirect('/home');
+      }
+    }
+    public function logout()
+    {
+      Auth::logout();
+      return redirect('/');
     }
 }

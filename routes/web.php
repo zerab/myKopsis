@@ -14,11 +14,13 @@
 Route::get('/', function () {
     return view('layouts.master');
 });
-Route::get('/katalog', "katalogController@index");
-Route::get('/akun', "akunController@index");
+Route::get('/home', "HomeController@index");
+Route::get('/katalog', "KatalogController@index");
+Route::get('/akun', "AkunController@index");
 
 
-Route::get('/register', 'authController@register');
-Route::get('/login', 'authController@login');
+Route::get('/register', 'AuthController@register');
+Route::get('/login', 'AuthController@login');
 Route::post('/register', 'Auth\RegisterController@create');
-Route::post('/login', 'CobaController@loginMember');
+Route::post('/login', 'Auth\LoginController@authenticate');
+Route::get('/logout', 'Auth\loginController@logout');

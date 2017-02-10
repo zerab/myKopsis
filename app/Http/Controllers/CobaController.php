@@ -9,7 +9,7 @@ use App\Member;
 class CobaController extends Controller
 {
 
-    public function loginMember()
+    /*public function loginMember()
     {
       $credentials = array([
         'username' => request('username'),
@@ -18,5 +18,13 @@ class CobaController extends Controller
       Auth::login($credentials);
       $id = Auth::user();
       dd($id);
+    }*/
+    public function authenticate()
+    {
+      $username = request('username');
+      $password = request('password');
+      $member = Auth::attempt(['username' => $username, 'password' => $password]);
+      dd($member);
+
     }
 }
