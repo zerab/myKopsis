@@ -15,7 +15,7 @@
         <div class="col-md-3"><div class="logo-header"><a href="/"><img src="images/myKopsis-logo.png"></a></div></div>
         <div class="col-md-4 col-md-offset-1">
           <form class="navbar-form">
-        <div class="form-group">
+        <div class="form-group"> 
           <input type="text" class="form-control no-border" placeholder="Cari">
         </div>
         <button type="submit" class="btn btn-default no-border"><span class="glyphicon glyphicon-search"></span></button>

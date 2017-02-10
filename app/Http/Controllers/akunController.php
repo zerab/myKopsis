@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Member;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class akunController extends Controller
 {
@@ -36,18 +38,8 @@ class akunController extends Controller
      */
     public function store()
     {
-        $this->validate(request(), [
-            'fullname' => 'required',
-            'username' => 'required|min:4|unique:members,username',
-            'gender' => 'required',
-            'birthdate' => 'required',
-            'birthmonth' => 'required',
-            'birthyear' => 'required',
-            'email' => 'required',
-            'phone' => 'required|min:6|numeric',
-            'password' => 'required|min:6',
-        ]);
-        $member = new Member;
+
+        /*$member = new Member;
         $member->fullname = request('fullname');
         $member->username = request('username');
         $member->gender = request('gender');
@@ -59,11 +51,22 @@ class akunController extends Controller
         $member->password = Hash::make(request('password'));
         $member->save();
         $member->member_id = $member->id;
-        $member->save();
+        $member->save();*/
+
+        auth()->login($member);
 
         return redirect('/');
     }
-
+    public function login()
+    {
+      $member = array([
+        'username' => request('username'),
+        'password' => request('password')
+        ]);
+      Auth::login($member);
+      $id = Auth::user();
+      dd($id);
+    }
     /**
      * Display the specified resource.
      *

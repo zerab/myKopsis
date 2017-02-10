@@ -17,8 +17,8 @@ Route::get('/', function () {
 Route::get('/katalog', "katalogController@index");
 Route::get('/akun', "akunController@index");
 
-Auth::routes();
 
 Route::get('/register', 'authController@register');
 Route::get('/login', 'authController@login');
-Route::post('/register', 'akunController@store');
+Route::post('/register', 'Auth\RegisterController@create');
+Route::post('/login', 'CobaController@loginMember');

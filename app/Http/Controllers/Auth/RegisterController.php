@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Member;
 
 class RegisterController extends Controller
 {
@@ -27,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,10 +49,17 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+          'fullname' => 'required',
+          'username' => 'required|min:4|unique:members,username',
+          'gender' => 'required',
+          'birthdate' => 'required',
+          'birthmonth' => 'required',
+          'birthyear' => 'required',
+          'email' => 'required',
+          'phone' => 'required|min:6|numeric',
+          'password' => 'required|min:6',
         ]);
+
     }
 
     /**
@@ -60,12 +68,19 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    protected function create()
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+        $member = Member::create([
+            'fullname' => request('fullname'),
+            'username' => request('username'),
+            'gender' => request('gender'),
+            'birthdate' => request('birthdate'),
+            'birthmonth' => request('birthmonth'),
+            'birthyear' => request('birthyear'),
+            'email' => request('email'),
+            'phone' => request('phone'),
+            'password' => bcrypt(request('password'))
         ]);
+        return redirect('/');
     }
 }

@@ -3,8 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
-class Member extends Model
+class Member extends Model implements Authenticatable
 {
-    //
+    use Authenticatable;
+    protected $guarded = [];
+    use AuthenticableTrait;
 }

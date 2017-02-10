@@ -8,8 +8,8 @@
 @section('plain-content')
 <div class="login-wrapper">
   <center><h3>Masuk</h3></center>
-<form action="https://httpbin.org/post" method="POST" class="form login">
-
+<form action="/login" method="POST" class="form login">
+          {{ csrf_field() }}
         <div class="form__field">
           <label for="login__username"><span class="glyphicon glyphicon-user"></span><span class="hidden">Username</span></label>
           <input id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
