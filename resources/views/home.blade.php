@@ -15,4 +15,16 @@
     {{ $alert }}
 </div>
 @endif
+@if ($alert = Session::get('alert-not-admin'))
+<div class="alert alert-warning dismissable fade-in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {{ $alert }}
+</div>
+@endif
+@if ($alert = Session::get('alert-failed-account'))
+<div class="alert alert-warning dismissable fade-in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {{ $alert }}
+</div>
+@endif
 @endsection

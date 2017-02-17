@@ -82,7 +82,7 @@ class RegisterController extends Controller
             'birthyear' => request('birthyear'),
             'email' => request('email'),
             'phone' => request('phone'),
-            'password' => bcrypt(request('password')) 
+            'password' => bcrypt(request('password'))
         ]);
         $member->member_id = $member->id;
         $member->save();

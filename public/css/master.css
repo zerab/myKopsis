@@ -326,3 +326,44 @@ hr
   padding:60px;
   margin:30px 0px 0px 0px;
 }
+.profile-icon
+{
+  background-color:#1E2A36;
+  color:#ffffff;
+  font-size:150px;
+  padding:50px;
+  border:solid white 1px;
+  border-radius:25px;
+  position: relative;
+  left:40px;
+}
+
+.content-wrapper
+{
+  padding:20px;
+}
+
+.info-table
+{
+  color:white;
+  font-weight:bold;
+  text-align:left;
+  border-spacing:50px;
+}
+.info-table td
+{
+  font-size:20px;
+  padding-bottom:5px;
+}
+.info-left
+{
+  width:170px;
+}
+.info-mid
+{
+  width:20px;
+}
+.info-right
+{
+  width:400px;
+}

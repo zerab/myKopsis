@@ -23,7 +23,7 @@
           <span class="hidden">Jenis Kelamin</span>
           <select class="form__input" name="gender">
             <option selected>Jenis  Kelamin</option>
-            <option value="laki">Laki-laki</option>
+            <option value="laki-laki">Laki-laki</option>
             <option value="perempuan">Perempuan</option>
           </select>
         </div>

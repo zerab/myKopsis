@@ -65,9 +65,13 @@ class akunController extends Controller
      */
     public function show($id)
     {
-        $informations = Member::find(['id' => $id])->all();
-        dd($informations);
-        return \View::make('akun.show')->with('informations', $informations);
+        if(auth()->id() == $id) {
+          $members = Member::find(['id' => $id]);
+          return view('akun.show', ['members' => $members]);
+        }
+        else {
+          return redirect('/home')->with('alert-failed-account', 'Maaf, anda tidak boleh mengintip akun orang lain.');
+        }
     }
 
     /**
