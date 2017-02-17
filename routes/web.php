@@ -17,10 +17,11 @@ Route::get('/', function () {
 Route::get('/home', "HomeController@index");
 Route::get('/katalog', "KatalogController@index");
 Route::get('/akun', "AkunController@index");
-
-
+Route::get('/akun/{id}', 'AkunController@show');
+Route::group(['middleware' => 'guest'], function () {
 Route::get('/register', 'AuthController@register');
 Route::get('/login', 'AuthController@login');
 Route::post('/register', 'Auth\RegisterController@create');
 Route::post('/login', 'Auth\LoginController@authenticate');
+});
 Route::get('/logout', 'Auth\loginController@logout');

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\MessageBag;
+
 
 class LoginController extends Controller
 {
@@ -55,8 +57,12 @@ class LoginController extends Controller
       $password = request('password');
       if ($member = Auth::attempt(['username' => $username, 'password' => $password]))
       {
-        echo "login berhasil";
-        return redirect('/home');
+         return redirect('/home')->with('alert-success', 'Telah berhasil login.');
+      }
+      else
+      {
+        $errors = new MessageBag(['password' => ['Username dan/atau password anda salah.']]);
+        return redirect('/login')->withErrors($errors)->with('password');
       }
     }
     public function logout()

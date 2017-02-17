@@ -9,6 +9,6 @@ use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 class Member extends Model implements Authenticatable
 {
 
-    protected $guarded = [];
+    protected $guarded = ['id', 'member_id', 'level'];
     use AuthenticableTrait;
 }

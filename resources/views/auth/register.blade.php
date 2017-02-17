@@ -8,7 +8,7 @@
 @section('plain-content')
 <div class="register-wrapper">
   <center><h3>Daftar</h3></center>
-<form action="/register" method="POST" class="form login" autocomplete="off">
+<form action="/register" method="POST" class="form login" autocomplete="on">
         {{ csrf_field() }}
         <div class="form__field">
           <span class="hidden">Nama lengkap</span>
@@ -73,23 +73,14 @@
           <input type="password" name="password" maxlength="24" class="form__input" placeholder="Kata Sandi" required>
         </div>
         <div class="form__field">
+          <span class="hidden">Konfirmasi Kata Sandi</span>
+          <input type="password" name="password_confirmation" maxlength="24" class="form__input" placeholder="Konfirmasi Kata Sandi" required>
+        </div>
+        <div class="form__field">
           <input type="submit" value="Register">
         </div>
       </form>
     </div>
-
-    @if(count($errors))
-    <div class="error-register">
-    <div class="alert alert-danger alert-dismissable fade in">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Oops!</strong><br>
-    <ul>
-      @foreach($errors->all() as $error)
-      <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-    </div>
-  </div>
-  @endif
+    @include('layouts.error')
 
 @endsection

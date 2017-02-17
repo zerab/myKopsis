@@ -48,17 +48,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-          'fullname' => 'required',
-          'username' => 'required|min:4|unique:members,username',
-          'gender' => 'required',
-          'birthdate' => 'required',
-          'birthmonth' => 'required',
-          'birthyear' => 'required',
-          'email' => 'required',
-          'phone' => 'required|min:6|numeric',
-          'password' => 'required|min:6',
-        ]);
+
 
     }
 
@@ -70,6 +60,19 @@ class RegisterController extends Controller
      */
     protected function create()
     {
+      $this->validate(request(), [
+        'fullname' => 'required',
+        'username' => 'required|min:4|unique:members,username',
+        'gender' => 'required',
+        'birthdate' => 'required',
+        'birthmonth' => 'required',
+        'birthyear' => 'required',
+        'email' => 'required|email|unique:members',
+        'phone' => 'required|min:6|numeric',
+        'password' => 'required|min:6|confirmed',
+        'password_confirmation' => 'required|min:6'
+      ]);
+
         $member = Member::create([
             'fullname' => request('fullname'),
             'username' => request('username'),
@@ -79,8 +82,11 @@ class RegisterController extends Controller
             'birthyear' => request('birthyear'),
             'email' => request('email'),
             'phone' => request('phone'),
-            'password' => bcrypt(request('password'))
+            'password' => bcrypt(request('password')) 
         ]);
-        return redirect('/');
+        $member->member_id = $member->id;
+        $member->save();
+        \Auth::attempt(['username' => request('username'), 'password' => request('password')]);
+        return redirect('/home')->with('alert-success-register', 'Selamat! Anda telah berhasil mendaftar.');
     }
 }

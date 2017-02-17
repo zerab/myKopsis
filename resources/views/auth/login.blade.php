@@ -23,6 +23,12 @@
         <div class="form__field">
           <input type="submit" value="sign in">
         </div>
+        @if ($error = $errors->first('password'))
+   <div class="alert alert-danger">
+     {{ $error }}
+   </div>
+  @endif
       </form>
+
     </div>
 @endsection

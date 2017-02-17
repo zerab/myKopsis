@@ -57,16 +57,6 @@ class akunController extends Controller
 
         return redirect('/');
     }
-    public function login()
-    {
-      $member = array([
-        'username' => request('username'),
-        'password' => request('password')
-        ]);
-      Auth::login($member);
-      $id = Auth::user();
-      dd($id);
-    }
     /**
      * Display the specified resource.
      *
@@ -75,7 +65,9 @@ class akunController extends Controller
      */
     public function show($id)
     {
-        //
+        $informations = Member::find(['id' => $id])->all();
+        dd($informations);
+        return \View::make('akun.show')->with('informations', $informations);
     }
 
     /**
