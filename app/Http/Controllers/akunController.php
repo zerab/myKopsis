@@ -135,8 +135,14 @@ class akunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function destroyConfirmation($id)
+    {
+      return view('akun.confirmation');
+    }
     public function destroy($id)
     {
-        //
+        $member= Member::find($id);
+        $member->delete();
+        return redirect('/home')->with('alert-success-delete', 'Akun telah berhasil dihapus');
     }
 }

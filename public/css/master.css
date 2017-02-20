@@ -305,12 +305,48 @@ hr
   -moz-transition:0.25s ease-out;
   transition:0.25s ease-out;
 }
+.red-hover
+{
+  border-style:solid;
+  border-color:#1E2A36;
+  background-color: #1E2A36;
+  border-radius:5px;
+  padding:30px 100px 30px 100px;
+}
+.red-hover:hover, .red-hover:active, .red-hover:focus
+{
+  border-color:#CF000F;
+  background-color:#CF000F;
+  color:#ffffff;
+  -webkit-transition:0.25s ease-out;
+  -moz-transition:0.25s ease-out;
+  transition:0.25s ease-out;
+}
+
+.blue-hover:hover
+{
+  border-color:#446CB3;
+  background-color:#446CB3;
+  color:#ffffff;
+  -webkit-transition:0.25s ease-out;
+  -moz-transition:0.25s ease-out;
+  transition:0.25s ease-out;
+}
 .akun-index-right
 {
   float: right;
   width:500px;
   position: relative;
   right: 40px;
+}
+.akun-index-right-blue
+{
+  float: right;
+  width:500px;
+  position: relative;
+  right: 40px;
+  position: relative;
+  top:19px;
 }
 .akun-index-right h3
 {
@@ -341,7 +377,7 @@ hr
 .content-wrapper
 {
   padding:20px;
-  margin-bottom:50px; 
+  margin-bottom:50px;
 }
 
 .info-table

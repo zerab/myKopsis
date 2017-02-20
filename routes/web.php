@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('/akun/{id}/edit', 'AkunController@edit');
   Route::patch('/akun/{id}/update', 'AkunController@update');
   Route::get('/akun/{id}/hapus', 'AkunController@destroyConfirmation');
+  Route::delete('/akun/{id}/hapus', 'AkunController@destroy');
 });
 Route::group(['middleware' => ['auth', 'admin']], function () {
   Route::get('/admin', 'AdminController@index');

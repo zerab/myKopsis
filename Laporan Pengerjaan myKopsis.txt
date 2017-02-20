@@ -1,0 +1,20 @@
+Laporan Hasil Pengerjaan Project myKopsis
+
+Dalam pengembangan project, beberapa kali saya mengalami issue maupun bug. Namun dengan bantuan google dan mentor yang sudah master, sedikit-demi sedikit issue bisa teratasi.
+Proses pengembangan myKopsis sudah mencapai 60% perkiraan saya.
+
+Dibawah ini adalah fitur-fitur di myKopsis baik yang sudah diselesaikan maupun belum diselesaikan.
+Sudah diselesaikan :
+1. CRUD data untuk anggota
+2. Sistem Admin
+3. Sistem register, login dan otentikasi anggota dan admin.
+4. Master Layouting
+5. Sistem katalog produk
+6. Edit dan hapus akun
+
+Belum diselesaikan :
+1. CRUD data untuk Administrasi Koperasi
+2. Sistem Shopping Cart dan proses pembelian
+3. Fitur search
+4. Fitur lupa password
+5. Beberapa page masih kosongan

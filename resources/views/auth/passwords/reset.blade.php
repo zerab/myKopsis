@@ -1,5 +1,4 @@
 @extends('layouts.header')
-
 @section('content')
 <div class="form__field">
   <span class="hidden">Kata Sandi</span>
