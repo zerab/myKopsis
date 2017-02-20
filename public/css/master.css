@@ -341,6 +341,7 @@ hr
 .content-wrapper
 {
   padding:20px;
+  margin-bottom:50px; 
 }
 
 .info-table
@@ -357,7 +358,7 @@ hr
 }
 .info-left
 {
-  width:170px;
+  width:200px;
 }
 .info-mid
 {
@@ -366,4 +367,14 @@ hr
 .info-right
 {
   width:400px;
+}
+.acc-op
+{
+  position: relative;
+  left: 40px;
+  margin-right: 5px;
+}
+.info-caption
+{
+  font-size: small;
 }

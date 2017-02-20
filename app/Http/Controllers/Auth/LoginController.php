@@ -57,7 +57,7 @@ class LoginController extends Controller
       $password = request('password');
       if ($member = Auth::attempt(['username' => $username, 'password' => $password]))
       {
-         return redirect('/home')->with('alert-success', 'Telah berhasil login.');
+         return redirect('/home')->with('alert-success-login', 'Telah berhasil login.');
       }
       else
       {
@@ -68,6 +68,6 @@ class LoginController extends Controller
     public function logout()
     {
       Auth::logout();
-      return redirect('/');
+      return redirect('/home')->with('alert-success-keluar', 'Telah berhasil keluar.');
     }
 }

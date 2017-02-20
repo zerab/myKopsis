@@ -21,7 +21,7 @@
         <button type="submit" class="btn btn-default no-border"><span class="glyphicon glyphicon-search"></span></button>
       </form>
     </div>
-    <a href="/katalog"><div class="col-md-1 col-md-offset-1 nav-btn"><center>Katalog</center></div></a>
+    <a href="/katalog"><div class="col-md-1 col-md-1 nav-btn"><center>Katalog</center></div></a>
     <?php
     if(auth()->check() == true) {
         $akun = '/'.auth()->user()->id;
@@ -48,11 +48,20 @@
   </div>
 </div>
 </a>
+@if(auth()->check() == true)
 <a href="/logout" method="POST">
-  @if(auth()->check() == true)
   <div class="col-md-1 nav-btn"><center>Keluar</center></div>
-  @endif
 </a>
+@endif
+
+@if(auth()->check() == true)
+        @if (auth()->user()->level == 'A')
+          <a href="/admin" method="POST">
+            <div class="col-md-1 nav-btn"><center>Admin</center></div>
+          </a>
+        @endif
+@endif
+
       </nav>
     </header>
     <div class="akun-container col-md-10 col-md-offset-1">

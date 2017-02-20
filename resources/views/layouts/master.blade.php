@@ -53,14 +53,14 @@
   <div class="col-md-1 nav-btn"><center>Keluar</center></div>
 </a>
 @endif
-<?php $users = auth()->user();?>
-      @foreach($users as $user)
-        <?php if ($user->level == 'A') {?>
-          <a href="/logout" method="POST">
-            <div class="col-md-1 nav-btn"><center>Keluar</center></div>
-          </a>';
-        <?php } ?>
-      @endforeach
+
+@if(auth()->check() == true)
+        @if (auth()->user()->level == 'A')
+          <a href="/admin" method="POST">
+            <div class="col-md-1 nav-btn"><center>Admin</center></div>
+          </a>
+        @endif
+@endif
 
       </nav>
     </header>

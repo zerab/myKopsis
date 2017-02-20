@@ -65,12 +65,15 @@ class akunController extends Controller
      */
     public function show($id)
     {
-        if(auth()->id() == $id) {
+        if (auth()->id() == $id) {
           $members = Member::find(['id' => $id]);
           return view('akun.show', ['members' => $members]);
         }
-        else {
+        elseif (auth()->id() != $id) {
           return redirect('/home')->with('alert-failed-account', 'Maaf, anda tidak boleh mengintip akun orang lain.');
+        }
+        else {
+          return redirect('/home')->with('alert-failed', 'Maaf, terjadi kesalahan.');
         }
     }
 
@@ -82,7 +85,16 @@ class akunController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (auth()->id() == $id) {
+          $member = Member::find($id);
+          return view('akun.edit')->with('member', $member);
+        }
+        elseif (auth()->id() != $id) {
+          return redirect('/home')->with('alert-failed-edit', 'Maaf, anda tidak boleh mengedit data orang lain.');
+        }
+        else {
+          return redirect('/home')->with('alert-failed', 'Maaf, terjadi kesalahan.');
+        }
     }
 
     /**
@@ -92,9 +104,29 @@ class akunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+      $this->validate(request(), [
+        'fullname' => 'required',
+        'username' => 'required|min:4',
+        'gender' => 'required',
+        'birthdate' => 'required',
+        'birthmonth' => 'required',
+        'birthyear' => 'required',
+        'email' => 'required|email',
+        'phone' => 'required|min:6|numeric'
+      ]);
+      $member = Member::findOrFail($id);
+      $member->fullname = request('fullname');
+      $member->username = request('username');
+      $member->gender = request('gender');
+      $member->birthdate = request('birthdate');
+      $member->birthmonth = request('birthmonth');
+      $member->birthyear = request('birthyear');
+      $member->email = request('email');
+      $member->phone = request('phone');
+      $member->save();
+      return redirect('/home')->with('alert-success-update', 'Telah memperbaharui informasi akun anda.');
     }
 
     /**

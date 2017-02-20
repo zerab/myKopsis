@@ -27,6 +27,9 @@ Route::group(['middleware' => 'guest'], function () {
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/logout', 'Auth\loginController@logout');
   Route::get('/akun/{id}', 'AkunController@show');
+  Route::get('/akun/{id}/edit', 'AkunController@edit');
+  Route::patch('/akun/{id}/update', 'AkunController@update');
+  Route::get('/akun/{id}/hapus', 'AkunController@destroyConfirmation');
 });
 Route::group(['middleware' => ['auth', 'admin']], function () {
   Route::get('/admin', 'AdminController@index');
