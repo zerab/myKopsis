@@ -17,4 +17,4 @@ Belum diselesaikan :
 2. Sistem Shopping Cart dan proses pembelian
 3. Fitur search
 4. Fitur lupa password
-5. Beberapa page masih kosongan
+5. Beberapa page masih kosongan 

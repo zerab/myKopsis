@@ -34,5 +34,8 @@ Route::group(['middleware' => 'auth'], function () {
 });
 Route::group(['middleware' => ['auth', 'admin']], function () {
   Route::get('/admin', 'AdminController@index');
-
+  Route::get('/admin/keuangan', 'KeuanganController@index');
+  Route::get('/admin/anggota', 'AnggotaController@index');
+  Route::get('/admin/produk', 'ProdukController@index');
+  Route::get('/admin/pemesanan', 'PemesananController@index');
 });
