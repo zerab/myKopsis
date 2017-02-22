@@ -1,9 +1,10 @@
 <header class="container-fluid nav-color navbar-fixed-top">
-      <nav class="">
+      <nav>
         <div class="col-md-3"><div class="logo-header"><a href="/"><img src="{{ URL::asset('images/myKopsis-logo.png') }}"></a></div></div>
         <div class="col-md-3 col-md-offset-1">
           <form class="navbar-form">
         <div class="form-group">
+          <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
           <input type="text" class="form-control no-border" placeholder="Cari">
         </div>
         <button type="submit" class="btn btn-default no-border"><span class="glyphicon glyphicon-search"></span></button>

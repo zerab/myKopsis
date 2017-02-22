@@ -10,6 +10,7 @@ class Member extends Model implements Authenticatable
 {
 
     protected $guarded = ['id', 'member_id', 'level'];
+    protected $softDelete = true;
 
     use AuthenticableTrait;
 

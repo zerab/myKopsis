@@ -450,15 +450,44 @@ hr
   margin:43px;
   float:left;
 }
-.table td
-{
-  font-weight:normal;
-}
 .table th
 {
-
+  background-color:white;
+  color:rgba(30, 42, 54, 1);
 }
-.modal-anggota .modal-content
+.table tr:hover
 {
-  background-color:rgba(30, 42, 54, 0.5);
+  background-color:rgba(30, 42, 54, 0.1);
+}
+.table tr
+{
+  padding:50px;
+}
+.table td
+{
+    background-color:rgba(30, 42, 54, 0.8);
+    font-weight:normal;
+}
+.modal-content
+{
+  background-color:rgba(30, 42, 54, 0.8);
+}
+td p
+{
+  padding-top:7px;
+}
+ .plus-background
+{
+  padding:5px;
+  color:rgba(30, 42, 54, 1);
+  background-color: #ffffff;
+  border-radius:20px;
+}
+.add-line:hover
+{
+  text-decoration: none;
+}
+.table-footer:hover
+{
+  cursor: pointer;
 }

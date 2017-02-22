@@ -36,6 +36,16 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
   Route::get('/admin', 'AdminController@index');
   Route::get('/admin/keuangan', 'KeuanganController@index');
   Route::get('/admin/anggota', 'AnggotaController@index');
+  Route::post('/admin/anggota/add', 'AnggotaController@create');
+  Route::get('/admin/anggota/{id}/edit', 'AnggotaController@edit');
+  Route::patch('/admin/anggota/{id}/update', 'AnggotaController@update');
+  Route::get('/admin/anggota/{id}/confirmation', 'AnggotaController@destroyConfirmation');
+  Route::delete('/admin/anggota/{id}/hapus', 'AnggotaController@destroy');
   Route::get('/admin/produk', 'ProdukController@index');
+  Route::post('/admin/produk/add', 'ProdukController@create');
+  Route::get('/admin/produk/{id}/edit', 'ProdukController@edit');
+  Route::patch('/admin/produk/{id}/update', 'ProdukController@update');
+  Route::get('/admin/produk/{id}/confirmation', 'ProdukController@destroyConfirmation');
+  Route::delete('/admin/produk/{id}/hapus', 'ProdukController@destroy');
   Route::get('/admin/pemesanan', 'PemesananController@index');
 });

@@ -25,7 +25,34 @@ class AnggotaController extends Controller
      */
     public function create()
     {
-        //
+      $validator = $this->validate(request(), [
+        'fullname' => 'required',
+        'username' => 'required|min:4|unique:members,username',
+        'gender' => 'required',
+        'birthdate' => 'required',
+        'birthmonth' => 'required',
+        'birthyear' => 'required',
+        'email' => 'required|email|unique:members',
+        'phone' => 'required|min:6|numeric',
+        'password' => 'required|min:6|confirmed',
+        'password_confirmation' => 'required|min:6',
+        'level' => 'required|nullable'
+      ]);
+        $member = Member::create([
+            'fullname' => request('fullname'),
+            'username' => request('username'),
+            'gender' => request('gender'),
+            'birthdate' => request('birthdate'),
+            'birthmonth' => request('birthmonth'),
+            'birthyear' => request('birthyear'),
+            'email' => request('email'),
+            'phone' => request('phone'),
+            'password' => bcrypt(request('password')),
+        ]);
+        $member->member_id = $member->id;
+        $member->level = request('level');
+        $member->save();
+        return redirect('/admin/anggota')->with('alert-admin-success-add', 'Berhasil Memasukkan data');
     }
 
     /**
@@ -58,7 +85,8 @@ class AnggotaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $member = Member::find($id);
+        return view('admin.anggota.edit', ['member' => $member]);
     }
 
     /**
@@ -68,9 +96,31 @@ class AnggotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+      $this->validate(request(), [
+        'fullname' => 'required',
+        'username' => 'required|min:4',
+        'gender' => 'required',
+        'birthdate' => 'required',
+        'birthmonth' => 'required',
+        'birthyear' => 'required',
+        'email' => 'required|email',
+        'phone' => 'required|min:6|numeric',
+        'level' => 'required|nullable'
+      ]);
+      $member = Member::findOrFail($id);
+      $member->fullname = request('fullname');
+      $member->username = request('username');
+      $member->gender = request('gender');
+      $member->birthdate = request('birthdate');
+      $member->birthmonth = request('birthmonth');
+      $member->birthyear = request('birthyear');
+      $member->email = request('email');
+      $member->phone = request('phone');
+      $member->phone = request('level');
+      $member->save();
+      return redirect('/admin/anggota')->with('alert-admin-success-update', 'Informasi telah berhasil diperbaharui');
     }
 
     /**
@@ -79,8 +129,14 @@ class AnggotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+     public function destroyConfirmation($id)
+     {
+       return view('admin.anggota.confirmation', ['id' => $id]);
+     }
     public function destroy($id)
     {
-        //
+        $member = Member::find($id);
+        $member->delete();
+        return redirect('admin/anggota')->with('alert-admin-success-delete', 'Akun telah berhasil dihapus');
     }
 }

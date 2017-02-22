@@ -1,11 +1,11 @@
-
 @extends('layouts.master')
 @section('title', 'Manajemen Anggota - myKopsis')
 @section('heading', 'Manajemen Anggota Koperasi')
 @section('content')
-<table class="table table-hover">
+@include('layouts.alert')
+
+<table class="table">
   <tr>
-    <th>#</th>
     <th>ID</th>
     <th>Nama Lengkap</th>
     <th>Username</th>
@@ -25,22 +25,28 @@
       $level = 'Anggota';
     }?>
   <tr>
-    <td>{{ $y++ }}</td>
-    <td>{{ $member->member_id }}</td>
-    <td>{{ $member->fullname }}</td>
-    <td>{{ $member->username }}</td>
-    <td>{{ $member->gender }}</td>
-    <td>{{ $member->birthdate }} - {{ $member->birthmonth }} - {{ $member->birthyear }}</td>
-    <td>{{ $member->email }}</td>
-    <td>{{ $member->phone }}</td>
-    <td>{{ $level }}</td>
+    <td><p>{{ $member->member_id }}</p></td>
+    <td><p>{{ $member->fullname }}</p></td>
+    <td><p>{{ $member->username }}</p></td>
+    <td><p>{{ $member->gender }}</p></td>
+    <td><p>{{ $member->birthdate }} - {{ $member->birthmonth }} - {{ $member->birthyear }}</p></td>
+    <td><p>{{ $member->email }}</p></td>
+    <td><p>{{ $member->phone }}</p></td>
+    <td><p>{{ $level }}</p></td>
     <td>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-edit"></span></button>
-      <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+      <a href="/admin/anggota/{{ $member->id }}/edit">
+        <button type="button" class="small btn btn-primary"><span class="small glyphicon glyphicon-edit"></span></button>
+      </a>
+      <a href="/admin/anggota/{{ $member->id }}/confirmation">
+        <button type="button" class="small btn btn-danger"><span class="small glyphicon glyphicon-trash"></span></button>
+      </a>
     </td>
   </tr>
-  @include('admin.anggota.edit')
   @endforeach
-</table>
 
+  <tr class="table-footer">
+    <td colspan="9"  class="add-line" type="button" data-toggle="modal" data-target="#addline"><center><b><span class="glyphicon glyphicon-plus plus-background"></span> Tambah Akun Baru</b></center></td>
+  </tr>
+</table>
+@include('admin.anggota.add')
 @endsection

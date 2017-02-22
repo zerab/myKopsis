@@ -71,7 +71,7 @@
 
         <div class="form__field">
           <span class="hidden">No. Telepon</span>
-          <input type="text" name="phone" class="form__input" placeholder="No. Telepon" maxlength="15" value="{{ $member->phone }}" required>
+          <input type="number" name="phone" class="form__input" placeholder="No. Telepon" maxlength="15" value="{{ $member->phone }}" required>
         </div>
 
         <div class="form__field">

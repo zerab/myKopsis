@@ -6,7 +6,7 @@
 @section('content')
 <center><h1 class="white">Mau beli apa hari ini?</h1></center>
 @foreach ($products as $product)
-<?php if($product->StatusAvailable == 'Hide'){
+<?php if($product->status_available == 'Hidden'){
 
 } else {?>
 <div class="col-xs-6 col-md-4">

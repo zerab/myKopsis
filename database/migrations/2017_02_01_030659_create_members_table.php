@@ -28,6 +28,7 @@ class CreateMembersTable extends Migration
             $table->string('phone','15')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
