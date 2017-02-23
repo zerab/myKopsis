@@ -15,10 +15,11 @@ class CreateOutcomesTable extends Migration
     {
         Schema::create('outcomes', function (Blueprint $table) {
             $table->increments('outcome_id');
+            $table->integer('admin_id')->unsigned();
             $table->dateTime('outcome_date');
             $table->integer('total_outcome');
-            $table->text('details', '500');
-            $table->integer('admin_id');
+            $table->text('details', '500')->nullable();
+            $table->foreign('admin_id')->nullable()->references('id')->on('members');
             $table->timestamps();
         });
     }

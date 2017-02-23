@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Order;
 
-class PemesananController extends Controller
+class LabaRugiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class PemesananController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
-        return view('admin.pemesanan', ['orders' => $orders] );
+        //
     }
 
     /**

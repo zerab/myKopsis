@@ -4,7 +4,7 @@
 @section('content')
 <div class="admin-menu">
   <div class="admin-title">
-    <center><h1>Menu Manajemen</h1></center>
+    <center><h1><b>Menu Manajemen</b></h1></center>
   </div>
   <div class="admin-menu-list">
       <a href="/admin/keuangan"><div class="admin-menu-item"><span class="glyphicon glyphicon-stats menu-logo"></span><br><center>Manajemen Keuangan</center></div></a>

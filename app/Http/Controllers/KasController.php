@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Cash;
 
 use Illuminate\Http\Request;
-use App\Order;
 
-class PemesananController extends Controller
+class KasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class PemesananController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
-        return view('admin.pemesanan', ['orders' => $orders] );
+        return view('admin.kas.index');
     }
 
     /**

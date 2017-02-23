@@ -423,7 +423,13 @@ hr
 {
   display:inline-block;
 }
-.admin-menu-list a
+.admin-menu-list-keuangan
+{
+  display:inline-block;
+  position:relative;
+  left:150px;
+}
+.admin-menu-list a, .admin-menu-list-keuangan a
 {
   color:#ffffff
 }
