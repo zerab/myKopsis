@@ -27,6 +27,7 @@
               <span class="status-available">{{ $product->status_available }}</span><?php } ?>
             <?php if($product->status_available == 'Kosong'){?>
               <span class="status-kosong">{{ $product->status_available }}</span><?php } ?>
+              <button class="glyphicon glyphicon-shopping-cart"></button>
             </span>
           </p>
         </div>

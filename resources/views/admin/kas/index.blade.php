@@ -1,42 +1,41 @@
+<head>
+  {!! Charts::assets() !!}
+</head>
 @extends('layouts.master')
-@section('title', 'Manajemen Pemesanan - myKopsis')
-@section('heading', 'Manajemen Pemesanan Koperasi')
+@section('title', 'Manajemen Kas - myKopsis')
+@section('heading', 'Manajemen Kas Koperasi')
 @section('content')
 @include('layouts.alert')
-
+<center>{!! $chart->render() !!}</center><br>
 <table class="table">
   <tr>
-    <th>ID Pemesanan</th>
-    <th>ID Pemesan</th>
-    <th>Total Pembayaran</th>
-    <th>Waktu Pemesanan</th>
-    <th>Status</th>
-    <th>Metode Pembayaran</th>
+    <th>ID Kas</th>
+    <th>Total Kas</th>
+    <th>Detail</th>
+    <th>Tanggal</th>
     <th>Action</th>
   </tr>
-<?php $y= 1;?>
-  @foreach($orders as $order)
+  @foreach ($cashes as $cash)
+  <?php $number = number_format($cash->total_cash);?>
   <tr>
-    <td><p>{{ $order->order_id }}</p></td>
-    <td><p>{{ $order->member_id }}</p></td>
-    <td><p>{{ $order->total_payment }}</p></td>
-    <td><p>{{ $order->order_date }}</p></td>
-    <td><p>{{ $order->sstatus }}</p></td>
-    <td><p>{{ $order->payment_method }}</p></td>
+    <td> {{ $cash->id }} </td>
+    <td> {{ $number }} </td>
+    <td> {{ $cash->details }}</td>
+    <td> {{ $cash->created_at }}</td>
     <td>
-      <a href="/admin/pemesanan/{{ $order->id }}/edit">
+      <a href="/admin/keuangan/kas/{{ $cash->id }}/edit">
         <button type="button" class="small btn btn-primary"><span class="small glyphicon glyphicon-edit"></span></button>
       </a>
-      <a href="/admin/pemesanan/{{ $order->id }}/confirmation">
+      <a href="/admin/keuangan/kas/{{ $cash->id }}/confirmation">
         <button type="button" class="small btn btn-danger"><span class="small glyphicon glyphicon-trash"></span></button>
       </a>
     </td>
   </tr>
   @endforeach
-
   <tr class="table-footer">
-    <td colspan="9"  class="add-line" type="button" data-toggle="modal" data-target="#addline"><center><b><span class="glyphicon glyphicon-plus plus-background"></span> Tambah Produk Baru</b></center></td>
+    <td colspan="9"  class="add-line" type="button" data-toggle="modal" data-target="#addline"><center><b><span class="glyphicon glyphicon-plus plus-background"></span> Tambah Data Baru</b></center></td>
   </tr>
 </table>
-@include('admin.pemesanan.add')
+
+@include('admin.kas.action.add')
 @endsection

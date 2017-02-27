@@ -6,6 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "consoletvs/charts": "4.*",
+        "gloudemans/shoppingcart": "^2.3",
+        "jlawrence/eos": "^3.2",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0"
     },

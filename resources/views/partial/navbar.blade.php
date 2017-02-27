@@ -29,7 +29,7 @@
             </div>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                   <div class="dropdown-content">
-
+                    @include('katalog.cart')
                   </div>
                   </div>
       </div>

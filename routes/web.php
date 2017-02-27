@@ -36,6 +36,11 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
   Route::get('/admin', 'AdminController@index');
   Route::get('/admin/keuangan', 'KeuanganController@index');
   Route::get('/admin/keuangan/kas', 'KasController@index');
+  Route::post('/admin/keuangan/kas/add', 'KasController@create');
+  Route::get('/admin/keuangan/kas/{id}/edit', 'KasController@edit');
+  Route::patch('/admin/keuangan/kas/{id}/update', 'KasController@update');
+  Route::get('/admin/keuangan/kas/{id}/confirmation', 'KasController@destroyConfirmation');
+  Route::delete('/admin/keuangan/kas/{id}/hapus', 'KasController@destroy');
   Route::get('/admin/keuangan/laba-rugi', 'LabaRugiController@index');
   Route::get('/admin/keuangan/pemasukan-pengeluaran', 'InOutController@index');
   Route::get('/admin/anggota', 'AnggotaController@index');

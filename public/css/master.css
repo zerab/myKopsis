@@ -254,6 +254,7 @@ hr
 .dropdown-content
 {
   color:black;
+  background-color: rgba(255, 255, 255, 0);
 }
 .akun-index a
 {
@@ -473,6 +474,7 @@ hr
 {
     background-color:rgba(30, 42, 54, 0.8);
     font-weight:normal;
+    color:#ffffff;
 }
 .modal-content
 {
@@ -496,4 +498,22 @@ td p
 .table-footer:hover
 {
   cursor: pointer;
+}
+.dropdown-menu
+{
+  background-color: rgba(255, 0, 0, 0);
+}
+.cart-table -table
+{
+  padding:0px;
+}
+.cart-table th
+{
+  background-color:#ffffff;
+  color: rgba(30, 42, 54, 1);
+}
+.cart-table td
+{
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(30, 42, 54, 1);
 }

@@ -21,7 +21,7 @@
     <td><p>{{ $order->member_id }}</p></td>
     <td><p>{{ $order->total_payment }}</p></td>
     <td><p>{{ $order->order_date }}</p></td>
-    <td><p>{{ $order->sstatus }}</p></td>
+    <td><p>{{ $order->status }}</p></td>
     <td><p>{{ $order->payment_method }}</p></td>
     <td>
       <a href="/admin/pemesanan/{{ $order->id }}/edit">
