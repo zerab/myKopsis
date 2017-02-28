@@ -7,21 +7,21 @@
 @endsection
 @section('plain-content')
 <?php
-    $id = $cash->id;
+    $id = $loss->loss_id;
 ?>
 <div class="register-wrapper">
   <center><h3>Perbarui Informasi</h3></center>
-<form action="/admin/keuangan/kas/{{ $id }}/update" method="POST" class="form login" autocomplete="on">
+<form action="/admin/keuangan/rugi/{{ $id }}/update" method="POST" class="form login" autocomplete="on">
           {{ method_field('PATCH') }}
           {{ csrf_field() }}
           <div class="form__field">
-            <span class="hidden">Total Kas</span>
-            <input type="number" name="total_cash" class="form__input" placeholder="Total Kas" value="{{ $cash->total_cash }}" required>
+            <span class="hidden">Total Pengeluaran</span>
+            <input type="number" name="total_loss" class="form__input" placeholder="Total Kerugian" value="{{ $loss->total_loss }}" required>
           </div>
 
           <div class="form__field">
             <span class="hidden">Rincian</span>
-            <input type="textarea" name="details" maxlength="500" class="form__input" value="{{ $cash->details }}" placeholder="Rincian">
+            <input type="textarea" name="details" maxlength="500" class="form__input" value="{{ $loss->details }}" placeholder="Rincian">
           </div>
           <div class="form__field">
             <input type="submit" value="PERBARUI">

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Income;
+use App\Outcome;
+use Charts;
 
 class InOutController extends Controller
 {
@@ -13,7 +16,24 @@ class InOutController extends Controller
      */
     public function index()
     {
-        //
+        $incomes = Income::all();
+        $outcomes = Outcome::all();
+        $chartIncome = Charts::database(Income::all(), 'area', 'highcharts')
+                ->title('Pemasukan Bulan ini')
+                ->elementLabel("Pemasukan")
+                ->dimensions(1000, 500)
+                ->labels($incomes->pluck('created_at'))
+                ->values($incomes->pluck('total_income'))
+                ->responsive(true);
+        $chartOutcome = Charts::database(Outcome::all(), 'area', 'highcharts')
+                ->title('Pengeluaran Bulan ini')
+                ->elementLabel("Pengeluaran")
+                ->colors(['#FFC107'])
+                ->dimensions(1000, 500)
+                ->labels($outcomes->pluck('created_at'))
+                ->values($outcomes->pluck('total_outcome'))
+                ->responsive(true);
+        return view('admin.inout.index', ['incomes' => $incomes, 'outcomes' => $outcomes, 'chartIncome' => $chartIncome, 'chartOutcome' => $chartOutcome]);
     }
 
     /**
@@ -21,10 +41,6 @@ class InOutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -54,11 +70,15 @@ class InOutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function incomeEdit($id)
     {
-        //
+
     }
 
+    public function outcomeEdit($id)
+    {
+
+    }
     /**
      * Update the specified resource in storage.
      *

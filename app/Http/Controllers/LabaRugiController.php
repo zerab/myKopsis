@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Profit;
+use App\Loss;
+use Charts;
 
 class LabaRugiController extends Controller
 {
@@ -13,7 +16,25 @@ class LabaRugiController extends Controller
      */
     public function index()
     {
-        //
+      $profits = Profit::all();
+      $losses = Loss::all();
+      $chartProfit = Charts::database(Profit::all(), 'area', 'highcharts')
+              ->title('Keuntungan Bulan ini')
+              ->elementLabel("Keuntungan")
+              ->colors(['#26A65B'])
+              ->dimensions(1000, 500)
+              ->labels($profits->pluck('created_at'))
+              ->values($profits->pluck('total_profit'))
+              ->responsive(true);
+      $chartLoss = Charts::database(Loss::all(), 'area', 'highcharts')
+              ->title('Kerugian Bulan ini')
+              ->elementLabel("Kerugian")
+              ->colors(['#CF000F'])
+              ->dimensions(1000, 500)
+              ->labels($losses->pluck('created_at'))
+              ->values($losses->pluck('total_loss'))
+              ->responsive(true);
+        return view('admin.labarugi.index', ['profits' => $profits, 'losses' => $losses, 'chartProfit' => $chartProfit, 'chartLoss' => $chartLoss]);
     }
 
     /**

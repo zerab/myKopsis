@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Cash;
-use Charts;
 
 use Illuminate\Http\Request;
+use App\Outcome;
 
-class KasController extends Controller
+class OutcomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,15 +14,7 @@ class KasController extends Controller
      */
     public function index()
     {
-      $cashes = Cash::all();
-      $chart = Charts::database(Cash::all(), 'area', 'highcharts')
-              ->title('Kas Bulan ini')
-              ->elementLabel("Total Kas")
-              ->dimensions(1000, 500)
-              ->labels($cashes->pluck('created_at'))
-              ->values($cashes->pluck('total_cash'))
-              ->responsive(true);
-        return view('admin.kas.index', ['chart' => $chart, 'cashes' => $cashes]);
+        //
     }
 
     /**
@@ -34,13 +25,16 @@ class KasController extends Controller
     public function create()
     {
       $validator = $this->validate(request(), [
-        'total_cash' => 'required|numeric'
+        'total_outcome' => 'required|numeric',
+        'details' => 'required'
       ]);
-        $cash = Cash::create([
-          'total_cash' => request('total_cash'),
-          'details' => request('details')
+      $id = auth()->id();
+        $outcome = Outcome::create([
+          'total_outcome' => request('total_outcome'),
+          'details' => request('details'),
+          'admin_id' => $id
         ]);
-        return redirect('/admin/keuangan/kas')->with('alert-admin-success-add', 'Berhasil Memasukkan data');
+        return redirect('/admin/keuangan/pemasukan-pengeluaran')->with('alert-admin-success-add', 'Berhasil Memasukkan data');
     }
 
     /**
@@ -73,8 +67,8 @@ class KasController extends Controller
      */
     public function edit($id)
     {
-      $cash = Cash::find($id);
-      return view('admin.kas.action.edit', ['cash' => $cash]);
+      $outcome = Outcome::find($id);
+      return view('admin.inout.outcome.edit', ['outcome' => $outcome]);
     }
 
     /**
@@ -87,13 +81,16 @@ class KasController extends Controller
     public function update($id)
     {
       $validator = $this->validate(request(), [
-        'total_cash' => 'required|numeric'
+        'total_outcome' => 'required|numeric',
+        'details' => 'required'
       ]);
-        $cash = Cash::find($id);
-        $cash->total_cash = request('total_cash');
-        $cash->details = request('details');
-        $cash->save();
-        return redirect('/admin/keuangan/kas')->with('alert-admin-success-update', 'Data berhasil diperbaharui');
+        $admin_id = auth()->id();
+        $outcome = Outcome::find($id);
+        $outcome->total_outcome = request('total_outcome');
+        $outcome->details = request('details');
+        $outcome->admin_id = $admin_id;
+        $outcome->save();
+        return redirect('/admin/keuangan/pemasukan-pengeluaran')->with('alert-admin-success-update', 'Berhasil memperbaharui data');
     }
 
     /**
@@ -102,15 +99,16 @@ class KasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
      public function destroyConfirmation($id)
      {
-       return view('admin.kas.action.confirmation', ['id' => $id]);
+       return view('admin.inout.outcome.confirmation', ['id' => $id]);
      }
 
     public function destroy($id)
     {
-      $cash = Cash::find($id);
-      $cash->delete();
-      return redirect('admin/keuangan/kas')->with('alert-admin-success-delete', 'Data telah berhasil dihapus');
+      $outcome = Outcome::find($id);
+      $outcome->delete();
+      return redirect('admin/keuangan/pemasukan-pengeluaran')->with('alert-admin-success-delete', 'Data telah berhasil dihapus');
     }
 }

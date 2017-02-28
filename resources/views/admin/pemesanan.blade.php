@@ -34,9 +34,6 @@
   </tr>
   @endforeach
 
-  <tr class="table-footer">
-    <td colspan="9"  class="add-line" type="button" data-toggle="modal" data-target="#addline"><center><b><span class="glyphicon glyphicon-plus plus-background"></span> Tambah Produk Baru</b></center></td>
-  </tr>
 </table>
 @include('admin.pemesanan.add')
 @endsection
