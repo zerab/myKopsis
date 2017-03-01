@@ -23,7 +23,7 @@
 </div>
 <div class="akun-index-right-blue">
   <center>
-  <a href="/admin/anggota"><div class="akun-index-foot blue-hover">
+  <a href="/admin/produk"><div class="akun-index-foot blue-hover">
     <h2>Tidak, saya berubah pikiran</h2>
   </div>
 </a>

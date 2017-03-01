@@ -81,8 +81,16 @@ class PemesananController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function destroyConfirmation($id)
+     {
+       return view('admin.pemesanan.confirmation', ['id' => $id]);
+     }
+
     public function destroy($id)
     {
-        //
+      $order = Order::find($id);
+      $order->delete();
+      return redirect('admin/pemesanan')->with('alert-admin-success-delete', 'Data telah berhasil dihapus');
     }
 }
