@@ -15,13 +15,10 @@ class CreateCashesTable extends Migration
     {
         Schema::create('cashes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('income_id')->unsigned()->nullable();
-            $table->integer('outcome_id')->unsigned()->nullable();
-            $table->foreign('income_id')->references('income_id')->on('incomes');
-            $table->foreign('outcome_id')->references('outcome_id')->on('outcomes');
             $table->integer('total_cash');
             $table->text('details', '500')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

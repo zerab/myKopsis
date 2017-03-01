@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('/home', "HomeController@index");
 Route::get('/katalog', "KatalogController@index");
 Route::get('/akun', "AkunController@index");
+Route::get('/keranjang', "CartController@index");
 
 Route::group(['middleware' => 'guest'], function () {
   Route::get('/register', 'AuthController@register');
@@ -31,6 +32,11 @@ Route::group(['middleware' => 'auth'], function () {
   Route::patch('/akun/{id}/update', 'AkunController@update');
   Route::get('/akun/{id}/hapus', 'AkunController@destroyConfirmation');
   Route::delete('/akun/{id}/hapus', 'AkunController@destroy');
+  Route::get('/keranjang/add/{id}', "CartController@add");
+  Route::patch('/keranjang/update/{id}', "CartController@editQty");
+  Route::delete('/keranjang/remove/{id}', "CartController@removeRow");
+  Route::post('/keranjang/kirim', "CartController@store");
+  Route::get('/keranjang/destroy', "CartController@destroy");
 });
 Route::group(['middleware' => ['auth', 'admin']], function () {
   Route::get('/admin', 'AdminController@index');
@@ -86,7 +92,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
   Route::delete('/admin/produk/{id}/hapus', 'ProdukController@destroy');
 
   Route::get('/admin/pemesanan', 'PemesananController@index');
-  Route::get('/admin/pemesanan/{id}/edit', 'PemesananController@edit');
+  Route::get('/admin/pemesanan/{id}/details', 'PemesananController@show');
   Route::patch('/admin/pemesanan/{id}/update', 'PemesananController@update');
   Route::get('/admin/pemesanan/{id}/confirmation', 'PemesananController@destroyConfirmation');
   Route::delete('/admin/pemesanan/{id}/hapus', 'PemesananController@destroy');

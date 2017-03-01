@@ -9,6 +9,10 @@ body
   display: flex;
   flex-direction: column;
 }
+@font-face {
+    font-family: Socialtype;
+    src: url('/fonts/SocialType.tff');
+}
 .wrapper {
   flex: 1;
 }
@@ -108,6 +112,18 @@ header a
   text-align:center;
   font-weight:bold;
   color:#222222;
+  font-size:20px;
+  padding:0px;
+  margin:0;
+}
+.card-caption:hover
+{
+  text-decoration:none;
+  color:#222222;
+}
+.card-price
+{
+  font-size:15px;
 }
 .btn-container
 {
@@ -516,4 +532,210 @@ td p
 {
   background-color: rgba(255, 255, 255, 0.9);
   color: rgba(30, 42, 54, 1);
+}
+.addtocart
+{
+  float:left;
+  border-radius: 0px 0px 0px 5px;
+  margin:0;
+  height:55px;
+  width:50px;
+}
+.addtolove
+{
+  float:right;
+  border-radius: 0px 0px 5px 0px;
+  margin:0;
+  height:55px;
+  width:50px;
+  color:#ffffff;
+  background-color:rgb(228, 84, 84);
+}
+.addtolove:hover
+{
+  color:#ffffff;
+    background-color:rgb(230, 57, 57);
+}
+.card-sub-caption
+{
+  background-color: ;
+  border-radius: 0 0 5px 5px;
+  color:rgba(30, 42, 54, 1);
+}
+.home-welcome-title
+{
+  background-color:rgba(30, 42, 54, 1);
+  width:100%;
+}
+.home-welcome-title h1
+{
+  padding-top:25px;
+}
+.home-welcome-picture
+{
+  background-color: #ffffff;
+  width:100%;
+}
+.home-welcome-picture img
+{
+  width:800px;
+}
+.home-welcome-content
+{
+  background-color:rgba(30, 42, 54, 1);
+  width:100%;
+  padding:20px 100px;
+}
+.home-welcome-content p
+{
+  text-align: justify;
+  font-weight: normal;
+
+}
+.home-welcome-founder-image
+{
+  background-color: #ffffff;
+  width:100%;
+  padding:20px;
+  color:rgba(30, 42, 54, 1);
+  font-size:20px;
+}
+.home-welcome-founder-image img
+{
+  width:200px;
+}
+.home-welcome-founder-image i
+{
+  padding:0px;
+  font-size:15px;
+}
+.home-welcome
+{
+  margin-bottom:20px;
+}
+.social
+{
+  float:right;
+  font-family: SocialType;
+  font-size:75px;
+  position:absolute;
+  top:825px;
+  left:845px;
+}
+ .social a
+ {
+   color:rgba(30, 42, 54, 1);
+ }
+ .social a:hover .social a:hover, .social a:active, .social a:visited
+{
+  text-decoration: none;
+}
+.fb:hover
+{
+  color:#355089;
+  text-decoration: none;
+  -webkit-transition:0.25s;
+  transition: 0.25s;
+  -moz-transition:0.25s;
+}
+.tw:hover
+{
+  color:#1DA1F2;
+  text-decoration: none;
+  -webkit-transition:0.25s;
+  transition: 0.25s;
+  -moz-transition:0.25s;
+}
+.gh:hover
+{
+  color:#24292E;
+  text-decoration: none;
+  -webkit-transition:0.25s;
+  transition: 0.25s;
+  -moz-transition:0.25s;
+}
+.ig:hover
+{
+  color:#5348D2;
+  text-decoration: none;
+  -webkit-transition:0.25s;
+  transition: 0.25s;
+  -moz-transition:0.25s;
+}
+.plain-content-cart
+{
+  background-color:rgba(255, 255, 255, 0.8);
+  position:absolute;
+  top:80px;
+  min-height:550px;
+  padding:20px;
+}
+.no-item-icon
+{
+  background-color:rgba(30, 42, 54, 1);
+  padding:40px;
+  width:240px;
+  height:240px;
+  border-radius: 120px;
+  position:relative;
+  left:300px;
+}
+
+.no-item-icon .glyphicon-shopping-cart
+{
+font-size:120px;
+position:relative;
+top:20px;
+left:20px;
+}
+
+.no-item-icon .glyphicon-log-in
+{
+font-size:120px;
+position:relative;
+top:15px;
+left:10px;
+}
+
+.no-item-icon .glyphicon-remove
+{
+font-size:40px;
+position:relative;
+top:-75px;
+left:70px;
+color:rgba(30, 42, 54, 1);
+}
+
+.belanja
+{
+  position: relative;
+  left:-120px;
+  top:70px;
+  background-color: rgba(30, 42, 54, 1);
+  font-weight:bold;
+  font-size:30px;
+  color:#ffffff;
+  padding:20px 80px;
+}
+.no-item-icon a:active, .no-item-icon a:visited
+{
+  color:#ffffff;
+}
+.belanja:active
+{
+  color:#ffffff;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance:none;
+  margin: 0;
+}
+.td-padding
+{
+  padding-top:20px;
+}
+.td-padding-action
+{
+  padding-top:12.5px;
 }

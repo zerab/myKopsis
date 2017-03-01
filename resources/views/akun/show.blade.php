@@ -2,7 +2,6 @@
 @section('title', 'Akun Anda - myKopsis')
 
 @section('heading')
-@foreach ($members as $member)
   <center><b>{{ $member->fullname }}</b></center>
 @endsection
 @section('content')
@@ -86,7 +85,7 @@
     <td>{{ $level }}</td>
   </tr>
   <tr>
-  <td></td>  
+  <td></td>
   </tr>
   </table>
 </div>
@@ -110,5 +109,4 @@
 </center>
 </div>
 </div>
-@endforeach
 @endsection

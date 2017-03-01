@@ -47,7 +47,8 @@ class PemesananController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::find($id);
+        return view('admin.pemesanan.show')->with('order', $order);
     }
 
     /**
@@ -58,7 +59,8 @@ class PemesananController extends Controller
      */
     public function edit($id)
     {
-        //
+      $order = Order::find($id);
+      return view('admin.pemesanan.edit', ['order' => $order]);
     }
 
     /**

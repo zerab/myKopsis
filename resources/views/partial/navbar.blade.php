@@ -21,18 +21,7 @@
     ?>
     <a href="/akun{{ $akun }}"><div class="col-md-1 nav-btn"><center>Akun</center></div></a>
     <a>
-
-      <div class="dropdown col-md-1">
-            <div class="dropdown-toggle nav-dropdown" type="button" data-toggle="dropdown">
-          <center><span class="glyphicon glyphicon-shopping-cart"></span>
-                  <span class="caret"></span></center>
-            </div>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                  <div class="dropdown-content">
-                    @include('katalog.cart')
-                  </div>
-                  </div>
-      </div>
+      <a href="/keranjang"><div class="col-md-1 col-md-1 nav-btn"><center><span class="glyphicon glyphicon-shopping-cart"><span style="font-family:arial;font-weight:bold;position:relative;top:-2px;">({{ Cart::count() }})</span></span></center></div></a>
 </a>
 @if(auth()->check() == true)
 <a href="/logout" method="POST">

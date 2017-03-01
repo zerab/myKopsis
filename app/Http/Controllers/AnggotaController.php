@@ -27,7 +27,7 @@ class AnggotaController extends Controller
     {
       $validator = $this->validate(request(), [
         'fullname' => 'required',
-        'username' => 'required|min:4|unique:members,username',
+        'username' => 'required|min:4|unique:members,username|alpha_num',
         'gender' => 'required',
         'birthdate' => 'required',
         'birthmonth' => 'required',
@@ -100,7 +100,7 @@ class AnggotaController extends Controller
     {
       $this->validate(request(), [
         'fullname' => 'required',
-        'username' => 'required|min:4',
+        'username' => 'required|min:4|alpha_num',
         'gender' => 'required',
         'birthdate' => 'required',
         'birthmonth' => 'required',

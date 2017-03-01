@@ -15,11 +15,10 @@ class CreateLossesTable extends Migration
     {
         Schema::create('losses', function (Blueprint $table) {
             $table->increments('loss_id');
-            $table->integer('admin_id')->unsigned();
             $table->integer('total_loss');
             $table->text('details');
-            $table->foreign('admin_id')->nullable()->references('id')->on('members');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

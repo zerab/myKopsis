@@ -11,7 +11,7 @@
   <body style="background-image:url('{{ URL::asset('images/business-wallpaper-13.jpg') }}');background-repeat: no-repeat; background-position: right top;background-attachment: fixed;">
       <div class="wrapper">
 @include('partial.navbar')
-    <div class="plain-content col-md-8 col-md-offset-2">
+    <div class="plain-content-cart col-md-8 col-md-offset-2">
       @yield('plain-content')
     </div>
   </div>

@@ -15,11 +15,10 @@ class CreateProfitsTable extends Migration
     {
         Schema::create('profits', function (Blueprint $table) {
             $table->increments('profit_id');
-            $table->integer('admin_id')->unsigned();
             $table->integer('total_profit');
             $table->text('details');
-            $table->foreign('admin_id')->nullable()->references('id')->on('members');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

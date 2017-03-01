@@ -83,5 +83,28 @@
     {{ $alert }}
 </div>
 @endif
+@if ($alert = Session::get('alert-success-add-cart'))
+<div class="alert alert-success dismissable fade-in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {{ $alert }}
+</div>
+@endif
+@if ($alert = Session::get('alert-success-update-cart'))
+<div class="alert alert-success dismissable fade-in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {{ $alert }}
+</div>
+@endif
+@if ($alert = Session::get('alert-success-send-cart'))
+<div class="alert alert-success dismissable fade-in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {{ $alert }}
+</div>
+@endif
+@if ($alert = Session::get('alert-success-empty-cart'))
+<div class="alert alert-success dismissable fade-in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    {{ $alert }}
+</div>
+@endif
 </h1>
- 

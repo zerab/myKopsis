@@ -8,7 +8,8 @@
   <tr>
     <th>ID Pemesanan</th>
     <th>ID Pemesan</th>
-    <th>Total Pembayaran</th>
+    <th>Username Pemesan</th>
+    <th>Total Tagihan</th>
     <th>Waktu Pemesanan</th>
     <th>Status</th>
     <th>Metode Pembayaran</th>
@@ -19,21 +20,22 @@
   <tr>
     <td><p>{{ $order->order_id }}</p></td>
     <td><p>{{ $order->member_id }}</p></td>
-    <td><p>{{ $order->total_payment }}</p></td>
-    <td><p>{{ $order->order_date }}</p></td>
+    <td><p>{{ $order->member->username }}</p></td>
+    <td><p>Rp.{{ number_format($order->total_payment) }}</p></td>
+    <td><p>{{ $order->created_at }}</p></td>
     <td><p>{{ $order->status }}</p></td>
     <td><p>{{ $order->payment_method }}</p></td>
     <td>
-      <a href="/admin/pemesanan/{{ $order->id }}/edit">
-        <button type="button" class="small btn btn-primary"><span class="small glyphicon glyphicon-edit"></span></button>
+      <a href="/admin/pemesanan/{{ $order->order_id }}/details">
+        <button type="button" class="small btn btn-success"><span class="small glyphicon glyphicon-search"></span></button>
       </a>
-      <a href="/admin/pemesanan/{{ $order->id }}/confirmation">
+      <a href="/admin/pemesanan/{{ $order->order_id }}/confirmation">
         <button type="button" class="small btn btn-danger"><span class="small glyphicon glyphicon-trash"></span></button>
       </a>
+
     </td>
   </tr>
   @endforeach
 
 </table>
-@include('admin.pemesanan.add')
 @endsection

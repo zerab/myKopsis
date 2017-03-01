@@ -62,7 +62,7 @@ class RegisterController extends Controller
     {
       $this->validate(request(), [
         'fullname' => 'required',
-        'username' => 'required|min:4|unique:members,username',
+        'username' => 'required|min:4|unique:members,username|alpha_num',
         'gender' => 'required',
         'birthdate' => 'required',
         'birthmonth' => 'required',

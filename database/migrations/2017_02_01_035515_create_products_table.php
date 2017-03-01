@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->integer('stock');
             $table->string('status_available','15')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

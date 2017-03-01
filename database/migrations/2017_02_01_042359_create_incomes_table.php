@@ -15,11 +15,10 @@ class CreateIncomesTable extends Migration
     {
         Schema::create('incomes', function (Blueprint $table) {
             $table->increments('income_id');
-            $table->integer('admin_id')->unsigned();
             $table->integer('total_income');
             $table->text('details', '500')->nullable();
-            $table->foreign('admin_id')->nullable()->references('id')->on('members');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
